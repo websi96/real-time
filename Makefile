@@ -36,6 +36,7 @@ lint:
 test: format lint test_unit test_acceptance
 
 test_unit:
+	sleep 60
 ifneq (,$(wildcard test/unit))
 	$(DOCKER_COMPOSE_TEST_UNIT) run --rm test_unit
 	$(MAKE) test_unit_clean
