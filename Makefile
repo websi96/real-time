@@ -36,6 +36,9 @@ lint:
 test: format lint test_unit test_acceptance
 
 test_unit:
+	nproc
+	grep -ie mhz /proc/cpuinfo
+	free -m
 	sleep 60
 ifneq (,$(wildcard test/unit))
 	$(DOCKER_COMPOSE_TEST_UNIT) run --rm test_unit
